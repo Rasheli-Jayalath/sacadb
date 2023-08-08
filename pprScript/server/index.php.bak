@@ -1,0 +1,20 @@
+<?php
+include_once("../../../../config/config.php");
+
+$host = HOST;
+$dbname = DBNAME;
+$username = DBUSER;
+$password = DBPASSWD;
+
+// $host = 'localhost';
+// $dbname = 'qbhorc';
+// $username = 'root';
+// $password = 'SJ_Smec@egc_2012';
+try {
+    $con = mysqli_connect($host, $username, $password, $dbname);
+    if ($con) {
+    }
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+$db_actual = "controlpanel";

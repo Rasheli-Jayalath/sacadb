@@ -1,0 +1,30 @@
+<?php
+error_reporting(0);
+include '../../db.php';
+$response = array();
+
+$region = $_REQUEST["region"];
+$ddfor = $_REQUEST["ddfor"];
+$query = "";
+
+$query = "";
+
+// echo $query;
+$result = mysqli_query($con, $query);
+//   $rcount=mysqli_num_rows($result);
+//   $res=mysqli_fetch_assoc($result);
+$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if ($res) {
+    // print_r($res);
+    // $res["status"] = '200';
+    echo json_encode($res);
+} else {
+    //Some error while fetching data
+    $response = array(
+        "msgstatus" => '402',
+        "msg" => 'No Data Found'
+    );
+    $tarr[0] = $response;
+    echo json_encode($tarr);
+}
